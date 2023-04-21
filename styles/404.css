@@ -1,0 +1,72 @@
+body {
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+}
+
+h1, p {
+    margin: 0;
+}
+
+/* 404 Error Page */
+
+.error-404-div {
+    width: 100%;
+    height: calc(100% - 250px);
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn ease 1s; /* Fade In on Load animation */
+    animation-fill-mode: forwards;
+}
+
+/* 404 Title */
+
+.title-404 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
+    font-weight: 700;
+    color: #ff3838;
+}
+
+/* 404 Description */
+
+.description-404 {
+    margin: 0 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
+
+/* 404 Button */
+
+.button-404 {
+    width: 110%;
+    margin-top: 32px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background: #ff3838;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button-404:hover {
+    background-color: #ff1818;
+}
+
+/* Media Queries for Mobile */
+
+@media only screen and (max-width: 767px) {
+    .error-404-box {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

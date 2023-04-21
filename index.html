@@ -1,0 +1,303 @@
+<html>
+
+    <head>
+        <!-- Base Configuration -->
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Metadata Configuration -->
+
+        <title>Full House - Computer Hardware Store</title>
+
+        <meta name="author" content="Full House">
+        <meta name="description" content="The computer hardware store with the largest selection of components and the lowest prices!">
+        <meta name="theme-color" content="#ff3838">
+
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- Internal Imports -->
+
+        <link rel="stylesheet" href="/styles/index.css" type="text/css"/>
+        <link rel="stylesheet" href="/styles/components/footer.css" type="text/css"/>
+        <link rel="stylesheet" href="/styles/utils/animations.css" type="text/css"/>
+        
+        <script src="/scripts/index.js" type="text/javascript"></script>
+        <script src="/scripts/auth/signout.js" type="text/javascript"></script>
+        <script src="/scripts/components/navbar.js" type="text/javascript"></script>
+        <script src="/scripts/utils/animations.js" type="text/javascript"></script>
+
+        <!-- External Imports -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!-- Hero -->
+        
+        <div class="hero">
+
+            <div class="hero-container">
+
+                <div class="slogan">
+                    <h2 class="slogan-text">The computer hardware store with the largest selection of components and the lowest prices!</h2>
+                </div>
+
+                <div class="slogan-bottom-border"></div>
+
+                <!-- Navbar -->
+
+                <div class="navbar">
+
+                    <div class="navbar-logo" onclick="fadeOut('/listings', '0.1s')"> <!-- Navbar Logo -->
+                        <a><img src="/images/icons/logo-white.png" alt="Full House" width="45" height="55"></a>
+                    </div>
+
+                    <div class="navbar-listings">
+                        <button class="navbar-listings-button" onclick="fadeOut('/listings', '0.2s')">VIEW PRODUCTS</button>
+                    </div>
+
+                    <div class="navbar-cart-box"> <!-- Navbar Cart Box -->
+                        <a href="/me/cart"><img src="/images/icons/cart.png" alt="Cart" width="40" height="40"></a>
+
+                        <div class="navbar-cart-text-div">
+                            <a class="navbar-cart-link" href="/me/cart">
+                                <p class="navbar-cart-text">Cart</p>
+                                <div class="navbar-cart-text" id="navbar-cart-products-count" style="font-size: 12px; color: #c5c5c5;"><div class="shimmer-dark loading-navbar-text-products"></div></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-account-box"> <!-- Navbar Account Box -->
+                        <a><img src="/images/icons/account-white.png" alt="Account" width="40" height="40"></a>
+
+                        <div class="navbar-account-text-div" id="navbar-account-loading"> <!-- Navbar Account Text Div (Loading) -->
+                            <div class="navbar-account-text"><div class="shimmer-dark loading-navbar-text-account-name"></div></div>
+                            <div class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                                <div class="shimmer-dark loading-navbar-text-account-details"></div>
+                            </div>
+                        </div>
+
+                        <div class="navbar-account-text-div" id="navbar-account-signedout" style="display: none;"> <!-- Navbar Account Text Div (Signed Out) -->
+                            <p class="navbar-account-text">Account</p>
+                            <p class="navbar-account-text" style="font-size: 12px; color: #7c7c7c;">
+                                <a class="navbar-account-link" href="#signin" onclick="fadeOut('/auth/signin', '0.2s')">Sign In</a> or <a class="navbar-account-link" href="#signup" onclick="fadeOut('/auth/signup', '0.2s')">Sign Up</a>
+                            </p>
+                        </div>
+
+                        <div class="navbar-account-text-div" id="navbar-account-signedin" style="display: none;"> <!-- Navbar Account Text Div (Signed In) -->
+                            <p class="navbar-account-text" id="navbar-account-name">Name</p>
+                            <p class="navbar-account-text" style="font-size: 12px; color: #7c7c7c;">
+                                <a class="navbar-account-link" href="/me/account">My Account</a> | <a class="navbar-account-link" href="#signout" onclick="signOut()">Sign Out</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Mobile Navbar -->
+
+                <div class="navbar-mobile">
+
+                    <div class="navbar-mobile-top"> <!-- Navbar Mobile Top -->
+                    
+                        <div class="navbar-mobile-logo" onclick="fadeOut('/listings', '0.1s')"> <!-- Navbar Mobile Logo -->
+                            <a><img src="/images/icons/logo-white.png" alt="Full House" width="40" height="50"></a>
+                        </div>
+
+                        <div class="navbar-mobile-cart"> <!-- Navbar Mobile Cart -->
+                            <a href="/me/cart"><img src="/images/icons/cart.png" alt="Cart" width="40" height="40"></a>
+
+                            <div class="navbar-mobile-cart-text-div">
+                                <a class="navbar-cart-link" href="/me/cart">
+                                    <p class="navbar-cart-text">Cart</p>
+                                    <div class="navbar-cart-text" id="navbar-mobile-cart-products-count" style="font-size: 12px; color: #c5c5c5;"><div class="shimmer-dark loading-navbar-text-products"></div></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="navbar-mobile-account"> <!-- Navbar Mobile Account -->
+                            <button class="navbar-mobile-account-button" onclick="navbarAccountButton()"><a href="#"><img src="/images/icons/account-white.png" alt="Account" width="40" height="40"></a></button>
+                        
+                            <div class="navbar-account-text-div" id="navbar-mobile-account-loading"> <!-- Navbar Account Text Div (Loading) -->
+                                <div class="navbar-account-text"><div class="shimmer-dark loading-navbar-text-account-name"></div></div>
+                                <div class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                                    <div class="shimmer-dark loading-navbar-text-account-details"></div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-mobile-account-text-div" id="navbar-mobile-account-signedout" style="display: none;"> <!-- Navbar Mobile Account Text Div (Signed Out) -->
+                                <p class="navbar-account-text">Account</p>
+                                <p class="navbar-account-text" style="font-size: 12px; color: #7c7c7c;">
+                                    <a class="navbar-account-link" href="#signin" onclick="fadeOut('/auth/signin', '0.2s')">Sign In</a> or <a class="navbar-account-link" href="#signup" onclick="fadeOut('/auth/signup', '0.2s')">Sign Up</a>
+                                </p>
+                            </div>
+        
+                            <div class="navbar-mobile-account-text-div" id="navbar-mobile-account-signedin" style="display: none;"> <!-- Navbar Mobile Account Text Div (Signed In) -->
+                                <p class="navbar-account-text" id="navbar-mobile-account-name">Name</p>
+                                <p class="navbar-account-text" style="font-size: 12px; color: #7c7c7c;">
+                                    <a class="navbar-account-link" href="/me/account">My Account</a> | <a class="navbar-account-link" href="#signout" onclick="signOut()">Sign Out</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="navbar-mobile-listings">
+                        <button class="navbar-mobile-listings-button" onclick="fadeOut('/listings', '0.2s')">VIEW PRODUCTS</button>
+                    </div>
+
+                </div>
+
+                <script>getNavbarSignin()</script>
+
+                <!-- End of Navbar -->
+
+                <div class="hero-banner">
+
+                    <div class="hero-message">
+                        <p class="hero-message-title">Full House</p>
+                        <p class="hero-message-text">The largest selection of components for the lowest prices.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Testimonials -->
+
+        <div class="testimonials">
+
+            <div class="testimonials-title">
+                <p class="testimonials-title-text">Testimonials</p>
+            </div>
+
+            <div class="testimonial-box">
+                <p class="testimonial-text">"I was looking for a new computer and Full House had a great selection. The staff was very helpful in finding the right computer for me."</p>
+                <p class="testimonial-name">- John S.</p>
+            </div>
+
+            <div class="testimonial-box">
+                <p class="testimonial-text">"I've been going to Full House for all my computer needs for years. They always have what I'm looking for and the staff is always willing to help."</p>
+                <p class="testimonial-name">- Mary K.</p>
+            </div>
+
+            <div class="testimonial-box">
+                <p class="testimonial-text">"I was having some trouble with my computer and the Full House staff was able to help me troubleshoot the problem. They're always so helpful!"</p>
+                <p class="testimonial-name">- Brian T.</p>
+            </div>
+
+            <div class="testimonial-box">
+                <p class="testimonial-text">"I love shopping at Full House because I know I'm going to get great customer service. The staff is always willing to help and they have a great selection of products."</p>
+                <p class="testimonial-name">- Lisa G.</p>
+            </div>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div class="contact">
+                
+                <div class="contact-title">
+                    <p class="contact-title-text">Contact Us</p>
+                </div>
+    
+                <div class="contact-details">
+                    <p class="contact-details-text">Thank you for your interest in our store! Our physical address is 123 Main Street, Los Angeles, CA 90012. Our hours of operation are Monday - Friday, 9am - 5pm PST. For questions or comments, please call us at (123) 456-7890 or email us at contact@fullhouse.com. We look forward to hearing from you!</p>
+                </div>
+
+                <div class="contact-form">
+
+                    <div class="contact-form-title">
+                        <p class="contact-form-title-text">Send Us a Message</p>
+                    </div>
+
+                    <div class="contact-form-inputs">
+
+                        <div class="contact-half-inputs">
+                            <div class="contact-half-field">
+                                <input class="contact-input" id="email" type="email" placeholder=" ">
+                                <label class="contact-label" for="email"><span class="contact-input-span">E-mail</span></label>
+                            </div>
+        
+                            <div class="contact-half-field">
+                                <input class="contact-input" id="subject" type="text" placeholder=" ">
+                                <label class="contact-label" for="subject"><span class="contact-input-span">Subject</span></label>
+                            </div>
+                        </div>
+
+                        <div class="contact-field">
+                            <textarea class="contact-message-input" placeholder="Message" cols="40" rows="10"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="contact-form-button">
+                        <button class="contact-form-button-button" onclick="">Submit</button>
+                    </div>
+
+                </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <div class="footer-content">
+
+                <div class="footer-logo" onclick="fadeOut('/listings', '0.1s')">
+                    <img src="/images/icons/logo.png" alt="Logo" width="48" height="60">
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-link-title">Company</p>
+                    <a class="footer-link" href="/terms">Terms of Service</a>
+                    <a class="footer-link" href="/privacy">Privacy Policy</a>
+                    <a class="footer-link" href="/about">About</a>
+                    <a class="footer-link" href="/contact">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-link-title">Socials</p>
+                    <a class="footer-link" href="/facebook">Facebook</a>
+                    <a class="footer-link" href="/twitter">Twitter</a>
+                    <a class="footer-link" href="/pinterest">Pinterest</a>
+                    <a class="footer-link" href="/intagram">Instagram</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- End of Footer -->
+
+        <!-- NoScript Tag for Warning Messages to Old Browsers with JavaScript Disabled -->
+
+        <noscript>
+
+            <link rel="stylesheet" href="/styles/utils/noscript.css" type="text/css"/>
+
+            <div class="noscript">
+                <img class="noscript-logo" src="/images/icons/logo.png" alt="Logo" width="48" height="60" onclick="fadeOut('/', '0.2s')">
+                <h1 class="noscript-title">Oh Crap!</h1>
+                <p class="noscript-text">This website requires JavaScript in order to run.</p>
+                <p class="noscript-text">Please enable JavaScript in your browser settings and then reload the page.</p>
+            </div>
+
+        </noscript>
+
+        <!-- End of NoScript Tag -->
+
+    </body>
+
+</html>

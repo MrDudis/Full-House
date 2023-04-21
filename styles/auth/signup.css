@@ -1,0 +1,393 @@
+body {
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+    animation: fadeIn ease 0.6s; /* Fade In on Load animation */
+    animation-fill-mode: forwards;
+}
+
+/* Main Page */
+
+.outside-logo {
+    width: 50px;
+    height: 60px;
+    margin: auto;
+    margin-top: calc(8vh - 30px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.flex-box {
+    width: 60%;
+    height: 70%;
+    min-height: 570px;
+    max-height: 660px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: whitesmoke;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px 10px darkgray;
+}
+
+/* Inside Modal */
+
+.flex-image {
+    height: 100%;
+    width: 45%;
+    float: right;
+    background-image: url("/images/banners/signup-banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.flex-form {
+    width: 55%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Inside Flex Form */
+
+.signup-form {
+    display: inline-block;
+}
+
+/* Inside Form */
+
+.inside-logo {
+    width: 50px;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 10%; /* Bottom Margin for Space before Form */
+    left: 0;
+    right: 0;
+    display: none; /* Disabled until mobile mode */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Form Texts (Title and Description) */
+
+.form-title {
+    margin: 0;  /* Margin "0" to clear user agent stylesheet and form-description stay closer to title */
+    margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 34px;
+}
+
+.form-description {
+    margin-top: 8px;
+    margin-left: 10%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+/* Form Errors (Box and Message) */
+
+.form-error-box {
+    width: 80%;
+    height: fit-content;
+    margin-left: 10%;
+    margin-bottom: 26px;
+    display: none; /* Changed later to "block" by Javascript as an error is emitted */
+    background: linear-gradient(135deg, rgba(255,78,78,1) 0%, rgba(255,56,56,1) 75%);
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.form-error {
+    margin: 0;
+    padding: 12px 14px; /* Error Box Padding */
+}
+
+/* Form Inputs */
+
+.form-name-input {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.form-field {   /* Div that encases the input and label */
+    width: 80%;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 10%;
+}
+
+.form-half-field {   /* Div that encases the half input and label */
+    width: 100%;
+    height: 40px;
+}
+
+.form-input {   /* Input */
+    width: 100%;
+    padding: 8px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background-color: transparent;
+    outline: none;
+    border: 1.2px #3d3d3d solid;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {    /* Input when Focus */
+    border: 1.2px #ff3838 solid;
+}
+
+.form-label {   /* Label (Moves up when focus) */
+    position: relative;
+    top: -27.5px;
+    left: 7.5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    user-select: none;
+    transition: all 0.12s ease;
+    cursor: text;
+}
+
+.form-input:focus + .form-label,    /* Input and Label when Focus and Placeholder not shown */
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -46px;
+    left: 7.5px;
+    font-size: 14px;
+}
+
+.form-input:focus + .form-label {    /* Input and Label when Focus to change their colors */
+    color: #ff3838;
+}
+
+.form-input-span {  /* Span to add white background and add space */
+    padding: 0 5px;
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+
+/* Form Submit Button */
+
+.form-button {
+    width: 80%;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 10%;
+    background: #ff3838;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-inner-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.form-button-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.form-button-span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.form-button:hover {
+    background-color: #ff5c5c;
+}
+
+.form-button:disabled {
+    background-color: #ff5c5c;
+    cursor: not-allowed;
+}
+
+.form-button:disabled .lds-ring {
+    display: inline-block;
+}
+
+.form-button:disabled span {
+    display: none;
+}
+
+.form-button:disabled .form-button-text::after {
+    content: "Signing Up...";
+}
+
+/* Button Loading Ring */
+
+.lds-ring {
+    display: none;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    animation: fadeIn 0.1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+  
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2.8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+/* "Already have an account?" labels */
+
+.form-account-label {
+    display: inline-block;
+    margin-top: 18px;
+    margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.form-account-link {
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #ff3838;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.form-account-link:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.flex-footer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 14px;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    text-align: center;
+    z-index: 0;
+}
+
+.footer-link {
+    margin-right: 8px;
+    margin-left: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #171717;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.footer-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.footer-description {
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #3d3d3d;
+}
+
+/* Media Queries for Responsiveness (for outside content) */
+
+@media only screen and (max-height: 790px) {
+    .outside-logo {
+        display: none;
+    }
+
+    .flex-footer {
+        display: none;
+    }
+}
+
+/* Media Queries for Responsiveness (for inside content) */
+
+@media only screen and (max-width: 1200px) {
+    .flex-image {
+        width: 0%;
+    }
+
+    .flex-form {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .outside-logo {
+        display: none;
+    }
+
+    .inside-logo {
+        display: block;
+    }
+
+    .flex-box {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+
+    .form-input-span {
+        background-color: rgb(235, 235, 235);
+    }
+
+    .form-remember-div {
+        margin-top: 46px;
+    }
+
+    .flex-footer {
+        display: none;
+    }
+}

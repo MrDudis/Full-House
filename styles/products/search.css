@@ -1,0 +1,239 @@
+body {
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+}
+
+h1, p {
+    margin: 0;
+}
+
+/* No Search Results */
+
+.search-no-results {
+    display: none;
+    width: 80%;
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+
+.search-no-results-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #1b1b1b;
+}
+
+/* Search Results */
+
+.search-results-category-div {
+    width: 80%;
+    max-width: 1800px;
+    height: fit-content;
+    min-height: calc(100% - 420px);
+    margin: 20px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    animation: fadeIn ease 1.2s; /* Fade In on Load animation */
+    animation-fill-mode: forwards;
+}
+
+.search-results-category-title-text {
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 450;
+    color: #1b1b1b;
+}
+
+.search-results-category-flexbox {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-results-card {
+    width: 18.5%;
+    height: 380px;
+    display: flex;
+    position: relative; /* for incart box absolute */
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: rgb(246, 246, 246);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search-results-card:hover {
+    box-shadow: 0 2px 14px 2px darkgray;
+    transform: scale(102%);
+}
+
+/* Search Results Card In Cart Box */
+
+.search-results-card-incart {
+    position: absolute;
+    top: 28px;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-results-card-incart-box {
+    width: 130px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff5858;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: -4px 4px 12px 2px rgb(204, 204, 204);
+}
+
+.search-results-card-incart-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Search Results Card Image */
+
+.search-results-card-image {
+    margin: 22px auto;
+}
+
+/* Search Results Card Details */
+
+.search-results-card-content {
+    width: 100%;
+}
+
+.search-results-card-title {
+    margin: 0 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.search-results-card-type {
+    margin: 0 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #717171;
+}
+
+.search-results-card-cut-price {
+    margin: 0 5%;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #a6a6a6;
+    text-decoration: line-through;
+}
+
+.search-results-card-price {
+    margin: 0 5%;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Search Results Loading Card */
+
+.search-results-loading-card-image {
+    width: 85%;
+    margin: 25px auto 0 auto;
+}
+
+.loading-card-image {
+    height: 160px;
+    border-radius: 6px;
+    margin-bottom: 26px;
+}
+
+.search-results-loading-card-content {
+    width: 85%;
+    margin: 0 auto 25px auto;
+}
+
+.loading-card-text-large {
+    height: 25px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.loading-card-text-middle {
+    height: 17px;
+    width: 50%;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.loading-card-text-small {
+    height: 17px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media only screen and (max-width: 1334px) {
+    .search-results-card {
+        width: 23%;
+    }
+}
+
+@media only screen and (max-width: 1122px) {
+    .search-results-card {
+        width: 31%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .product-image {
+        width: 80%;
+        height: 300px;
+        align-items: center;
+    }
+
+    .product-details {
+        width: 80%;
+    }
+
+    .product-button-addtocart {
+        width: 100%;
+    }
+
+    .search-results-card {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 632px) {
+    .search-results-card {
+        width: 100%;
+        padding: 8px 0;
+        height: fit-content;
+    }
+}

@@ -1,0 +1,286 @@
+<html>
+
+    <head>
+        <!-- Base Configuration -->
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Metadata Configuration -->
+
+        <title>Full House - Cart</title>
+
+        <meta name="author" content="Full House">
+        <meta name="description" content="The computer hardware store with the largest selection of components and the lowest prices!">
+        <meta name="theme-color" content="#ff3838">
+
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- Internal Imports -->
+
+        <link rel="stylesheet" href="/styles/me/cart.css" type="text/css"/>
+        <link rel="stylesheet" href="/styles/components/navbar.css" type="text/css"/>
+        <link rel="stylesheet" href="/styles/components/footer.css" type="text/css"/>
+        <link rel="stylesheet" href="/styles/utils/animations.css" type="text/css"/>
+
+        <script src="/scripts/me/cart.js" type="text/javascript"></script>
+        <script src="/scripts/cart/manager.js" type="text/javascript"></script>
+        <script src="/scripts/auth/signout.js" type="text/javascript"></script>
+        <script src="/scripts/auth/verifySignin.js" type="text/javascript"></script>
+        <script src="/scripts/components/navbar.js" type="text/javascript"></script>
+        <script src="/scripts/utils/animations.js" type="text/javascript"></script>
+
+        <script>checkIfNotSignedIn('/me/cart')</script>
+
+        <!-- External Imports -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+
+        <div class="navbar">
+
+            <div class="navbar-logo" onclick="fadeOut('/listings', '0.1s')"> <!-- Navbar Logo -->
+                <a><img src="/images/icons/logo.png" alt="Full House" width="45" height="55"></a>
+            </div>
+
+            <div class="navbar-search-box"> <!-- Navbar Search Box -->
+                <input class="navbar-search-input" id="navbar-search-input" type="text" placeholder="Search for components...">
+                <button class="navbar-search-button" onclick="search()" type="submit"><img src="/images/icons/search.png" alt="Search" width="20" height="20"></button>
+                <script>hitEnterEvent("navbar-search-input")</script>
+            </div>
+
+            <div class="navbar-cart-box"> <!-- Navbar Cart Box -->
+                <a onclick="fadeOut('/me/cart', '0.2s')"><img src="/images/icons/cart-red.png" alt="Cart" width="40" height="40"></a>
+
+                <div class="navbar-cart-text-div">
+                    <a class="navbar-cart-link" onclick="fadeOut('/me/cart', '0.2s')">
+                        <p class="navbar-cart-text">Cart</p>
+                        <div class="navbar-cart-text" id="navbar-cart-products-count" style="font-size: 12px; color: #5c5c5c;"><div class="shimmer loading-navbar-text-products"></div></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-account-box"> <!-- Navbar Account Box -->
+                <a><img src="/images/icons/account.png" alt="Account" width="40" height="40"></a>
+
+                <div class="navbar-account-text-div" id="navbar-account-loading"> <!-- Navbar Account Text Div (Loading) -->
+                    <div class="navbar-account-text"><div class="shimmer loading-navbar-text-account-name"></div></div>
+                    <div class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                        <div class="shimmer loading-navbar-text-account-details"></div>
+                    </div>
+                </div>
+
+                <div class="navbar-account-text-div" id="navbar-account-signedout" style="display: none;"> <!-- Navbar Account Text Div (Signed Out) -->
+                    <p class="navbar-account-text">Account</p>
+                    <p class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                        <a class="navbar-account-link" href="#signin" onclick="fadeOut('/auth/signin', '0.2s')">Sign In</a> or <a class="navbar-account-link" href="#signup" onclick="fadeOut('/auth/signup', '0.2s')">Sign Up</a>
+                    </p>
+                </div>
+
+                <div class="navbar-account-text-div" id="navbar-account-signedin" style="display: none;"> <!-- Navbar Account Text Div (Signed In) -->
+                    <p class="navbar-account-text" id="navbar-account-name">Name</p>
+                    <p class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                        <a class="navbar-account-link" onclick="fadeOut('/me/account', '0.2s')">My Account</a> | <a class="navbar-account-link" href="#signout" onclick="signOut()">Sign Out</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mobile Navbar -->
+
+        <div class="navbar-mobile">
+
+            <div class="navbar-mobile-top"> <!-- Navbar Mobile Top -->
+                
+                <div class="navbar-mobile-logo" onclick="fadeOut('/listings', '0.1s')"> <!-- Navbar Mobile Logo -->
+                    <a><img src="/images/icons/logo.png" alt="Full House" width="40" height="50"></a>
+                </div>
+
+                <div class="navbar-mobile-cart"> <!-- Navbar Mobile Cart -->
+                    <a onclick="fadeOut('/me/cart', '0.2s')"><img src="/images/icons/cart-red.png" alt="Cart" width="40" height="40"></a>
+
+                    <div class="navbar-mobile-cart-text-div">
+                        <a class="navbar-cart-link" onclick="fadeOut('/me/cart', '0.2s')">
+                            <p class="navbar-cart-text">Cart</p>
+                            <div class="navbar-cart-text" id="navbar-mobile-cart-products-count" style="font-size: 12px; color: #5c5c5c;"><div class="shimmer loading-navbar-text-products"></div></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="navbar-mobile-account"> <!-- Navbar Mobile Account -->
+                    <button class="navbar-mobile-account-button" onclick="navbarAccountButton()"><a href="#"><img src="/images/icons/account.png" alt="Account" width="40" height="40"></a></button>
+                    
+                    <div class="navbar-account-text-div" id="navbar-mobile-account-loading"> <!-- Navbar Mobile Account Text Div (Loading) -->
+                        <div class="navbar-account-text"><div class="shimmer loading-navbar-text-account-name"></div></div>
+                        <div class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                            <div class="shimmer loading-navbar-text-account-details"></div>
+                        </div>
+                    </div>
+
+                    <div class="navbar-mobile-account-text-div" id="navbar-mobile-account-signedout" style="display: none;"> <!-- Navbar Mobile Account Text Div (Signed Out) -->
+                        <p class="navbar-account-text">Account</p>
+                        <p class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                            <a class="navbar-account-link" href="#signin" onclick="fadeOut('/auth/signin', '0.2s')">Sign In</a> or <a class="navbar-account-link" href="#signup" onclick="fadeOut('/auth/signup', '0.2s')">Sign Up</a>
+                        </p>
+                    </div>
+    
+                    <div class="navbar-mobile-account-text-div" id="navbar-mobile-account-signedin" style="display: none;"> <!-- Navbar Mobile Account Text Div (Signed In) -->
+                        <p class="navbar-account-text" id="navbar-mobile-account-name">Name</p>
+                        <p class="navbar-account-text" style="font-size: 12px; color: #5c5c5c;">
+                            <a class="navbar-account-link" onclick="fadeOut('/me/account', '0.2s')">My Account</a> | <a class="navbar-account-link" href="#signout" onclick="signOut()">Sign Out</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navbar-mobile-search-box"> <!-- Navbar Mobile Search Box -->
+                <input class="navbar-mobile-search-input" id="navbar-mobile-search-input" type="text" placeholder="Search components...">
+                <button class="navbar-mobile-search-button" onclick="search()" type="submit"><img src="/images/icons/search.png" alt="Search" width="20" height="20"></button>
+                <script>hitEnterEvent("navbar-mobile-search-input")</script>
+            </div>
+
+        </div>
+
+        <script>getNavbarSignin()</script>
+
+        <!-- End of Navbar -->
+
+        <!-- Cart -->
+
+        <div class="cart-title">
+            <p class="cart-title-text">Your Cart</p>
+        </div>
+
+        <div class="cart">
+
+            <!-- Cart List with All Products (Top/Left Side) and Manager for Quantity and Remove Product -->
+
+            <div class="cart-products" id="cart-products">
+
+                <div class="cart-product"> <!-- Replicable Div for multiple products (the actual box) -->
+
+                    <div class="cart-product-loading-details"> <!-- Loading Product Div -->
+        
+                        <div class="cart-product-image"> <!-- Image Placholder Loading Box -->
+                            <div class="shimmer cart-product-loading-image"></div>
+                        </div>
+        
+                        <div class="cart-product-text">
+                            <div class="shimmer cart-product-loading-text-large"></div> <!-- Product Name Placeholder Loading Box -->
+                            <div class="shimmer cart-product-loading-text-small"></div> <!-- Product Price Placeholder Loading Box -->
+                        </div>
+        
+                    </div>
+        
+                </div>
+
+                <!-- Space for Products Divs (Loaded from JS) -->
+
+            </div>
+
+            <!-- Cart Summary List with All Products Sum (Bottom/Right Side) and Total Price and Checkout Button -->
+
+            <div class="cart-list">
+
+                <div class="cart-list-box">
+
+                    <div class="cart-list-title">
+                        <h1 class="cart-list-title-text">Summary</h1>
+                    </div>
+        
+                    <div class="cart-list-products" id="cart-list-products"> <!-- The actual list box -->
+        
+                        <div class="cart-list-product">
+                            <div class="shimmer cart-list-loading-text-large"></div> <!-- Title Placeholder Loading Box -->
+                            <div class="shimmer cart-list-loading-text-small"></div> <!-- Price Placeholder Loading Box -->
+                        </div>
+
+                        <!-- Space for Products Divs (Loaded from JS) -->
+
+                    </div>
+        
+                    <div class="cart-list-checkout">
+        
+                        <div class="cart-list-checkout-total">
+                            <h2 class="cart-list-checkout-total-text">Total</h2>
+                            <h2 class="cart-list-checkout-total-price" id="cart-list-checkout-total-price">R$ --</h2>
+                        </div>
+        
+                        <div class="cart-list-checkout-btn">
+                            <button class="cart-list-checkout-button" id="checkout-button" onclick="fadeOut('/me/checkout', '0.2s')" disabled>Checkout</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>getCartProducts()</script> <!-- Get Cart Products for both Main List and Summary List -->
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <div class="footer-content">
+
+                <div class="footer-logo" onclick="fadeOut('/listings', '0.1s')">
+                    <img src="/images/icons/logo.png" alt="Logo" width="48" height="60">
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-link-title">Company</p>
+                    <a class="footer-link" href="/terms">Terms of Service</a>
+                    <a class="footer-link" href="/privacy">Privacy Policy</a>
+                    <a class="footer-link" href="/about">About</a>
+                    <a class="footer-link" href="/contact">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <p class="footer-link-title">Support</p>
+                    <a class="footer-link" href="/help">Help Desk</a>
+                    <a class="footer-link" href="/developers">Developers</a>
+                    <a class="footer-link" href="/jobs">Jobs</a>
+                    <a class="footer-link" href="/legal">Legal</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- End of Footer -->
+
+        <!-- NoScript Tag for Warning Messages to Old Browsers with JavaScript Disabled -->
+
+        <noscript>
+
+            <link rel="stylesheet" href="/styles/utils/noscript.css" type="text/css"/>
+
+            <div class="noscript">
+                <img class="noscript-logo" src="/images/icons/logo.png" alt="Logo" width="48" height="60" onclick="fadeOut('/', '0.2s')">
+                <h1 class="noscript-title">Oh Crap!</h1>
+                <p class="noscript-text">This website requires JavaScript in order to run.</p>
+                <p class="noscript-text">Please enable JavaScript in your browser settings and then reload the page.</p>
+            </div>
+
+        </noscript>
+
+        <!-- End of NoScript Tag -->
+
+    </body>
+
+</html>

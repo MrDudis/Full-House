@@ -1,0 +1,312 @@
+/* Navbar */
+
+.navbar {
+    width: 95%;
+    max-width: 2200px;
+    height: 100px;
+    margin: 16px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    animation: fadeIn ease 0.6s; /* Fade In on Load animation */
+    animation-fill-mode: forwards;
+    z-index: 100;
+    user-select: none;
+}
+
+/* Navbar Logo (Div 1/4) */
+
+.navbar-logo {
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Navbar Search Box (Div 2/4) */
+
+.navbar-search-box {
+    width: 38%;
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.15s ease-in-out;
+}
+
+.navbar-search-box:focus-within {
+    box-shadow: 0 2px 14px 2px darkgray;
+}
+
+.navbar-search-input {
+    width: 85%;
+    min-width: 100px;
+    height: 40px;
+    padding-left: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 450;
+    background-color: rgb(246, 246, 246);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.navbar-search-button {
+    width: 15%;
+    min-width: fit-content;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(255,77,77,1) 0%, rgba(222,41,41,1) 100%);
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar-search-button:hover {
+    background: linear-gradient(135deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 100%);
+}
+
+/* Navbar Cart (Div 3/4) */
+
+.navbar-cart-box {
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    gap: 6px;
+}
+
+.navbar-cart-box:hover {
+    text-decoration: underline;
+}
+
+.navbar-cart-text-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+.navbar-cart-link {
+    text-decoration: none;
+}
+
+.navbar-cart-text {
+    height: fit-content;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
+
+/* Cart Products Loading */
+
+.loading-navbar-text-products {
+    margin-top: 4px;
+    height: 12px;
+    width: 70px;
+    border-radius: 12px;
+}
+
+/* Navbar Account (Div 4/4) */
+
+.navbar-account-box {
+    width: 19%;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    gap: 6px;
+}
+
+.navbar-account-text-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    cursor: default;
+}
+
+.navbar-account-text {
+    height: fit-content;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
+
+.navbar-account-link {
+    color: #2e2e2e;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-account-link:hover {
+    text-decoration: underline;
+}
+
+/* Account Information Loading */
+
+.loading-navbar-text-account-name {
+    margin-bottom: 6px;
+    height: 18px;
+    width: 140px;
+    border-radius: 12px;
+}
+
+.loading-navbar-text-account-details {
+    height: 12px;
+    width: 110px;
+    border-radius: 12px;
+}
+
+/* Navbar Mobile */
+
+.navbar-mobile {
+    display: none !important;
+    width: 100%;
+    margin: 28px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    animation: fadeIn ease 0.6s; /* Fade In on Load animation */
+    animation-fill-mode: forwards;
+    z-index: 100;
+    user-select: none;
+}
+
+.navbar-mobile-top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    gap: 6px;
+}
+
+/* Navbar Mobile Logo */
+
+.navbar-mobile-logo {
+    width: 30%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Navbar Mobile Cart */
+
+.navbar-mobile-cart {
+    width: 25%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    -webkit-tap-highlight-color: transparent;
+    gap: 8px;
+}
+
+/* Navbar Mobile Account */
+
+.navbar-mobile-account {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    -webkit-tap-highlight-color: transparent;
+    gap: 4px;
+}
+
+.navbar-mobile-account-text-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+.navbar-mobile-account-button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+/* Mobile Navbar Search Box */
+
+.navbar-mobile-search-box {
+    width: 90%;
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 4px;
+    transition: all 0.15s ease-in-out;
+}
+
+.navbar-mobile-search-box:focus-within {
+    box-shadow: 0 2px 14px 2px darkgray;
+}
+
+.navbar-mobile-search-input {
+    width: 90%;
+    min-width: 100px;
+    height: 40px;
+    padding-left: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 450;
+    background-color: rgb(246, 246, 246);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.navbar-mobile-search-button {
+    width: 10%;
+    min-width: 70px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(255,77,77,1) 0%, rgba(222,41,41,1) 100%);
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Media Queries for Responsiveness */
+
+@media only screen and (max-width: 1022px) {
+    .navbar {
+        display: none !important;
+    }
+
+    .navbar-mobile {
+        display: flex !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-mobile-account-text-div, .navbar-mobile-account-signedin-text-div, .navbar-mobile-cart-text-div, #navbar-mobile-account-loading {
+        display: none !important;
+    }
+
+    .navbar-mobile-cart {
+        margin-right: 0;
+    }
+}
